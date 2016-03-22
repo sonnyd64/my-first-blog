@@ -9,21 +9,18 @@
 	</head>
 
 	<body>
+	
 		<div class="header">
 			<h1><a href="">StuartBlog</a></h1>
 			<hr />
 		</div>
 
-		{% for post in posts %}
-		<div class="post">
-			<p class="post_date">published: {{ post.published_date|date:"m.d.Y H:i"}}</p>
-			<h2><a href="">{{post.title}}</a></h2>
-			<p class="post_body">{{post.text|linebreaksbr}}</p>
-			<br />
+		<div class="content_container">
+			<div class="col-md-8">
+			{% block content %}
+			{% endblock %}
+			</div>
 		</div>
-		{% endfor %}
-
-		
 
 	</body>
 </html>	
