@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+		<div class="post">
+			{% if post.published_date %}
+			<p class="post_date">published: {{ post.published_date|date:"m.d.Y H:i"}}</p>
+			<h2>{{post.title}}</h2>
+			<p class="post_body">{{post.text|linebreaksbr}}</p>
+			
+			{% else %}
+			<p class="post_date">you aren't supposed to be here</p>
+			<h2>Invalid post</h2>
+			<p class="post_body">You do not have permissions to view this post.  Please return to the <a href="{% url 'post_list' %}">homepage</a> and select another option.</p>
+			
+			{% endif %}
+			<br />
+		</div>
+{% endblock %}
