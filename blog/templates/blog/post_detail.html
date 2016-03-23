@@ -3,8 +3,12 @@
 {% block content %}
 		<div class="post">
 			{% if post.published_date %}
-			<p class="post_date">published: {{ post.published_date|date:"m.d.Y H:i"}}</p>
-			<h2>{{post.title}}</h2>
+			<p class="post_date">published: {{ post.published_date|date:"m.d.Y H:i"}}
+			&emsp;
+			{% if user.is_authenticated %}
+				<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></p>
+			{% endif %}
+			<h2 class="title">{{post.title}}</h2>
 			<p class="post_body">{{post.text|linebreaksbr}}</p>
 			
 			{% else %}
@@ -14,5 +18,10 @@
 			
 			{% endif %}
 			<br />
+
+			{% if post.published_date < post.last_edit %}
+			<h6>Last edited on {{ post.last_edit|date:"m.d.Y H:i"}}</h6>
+			{% endif %}
+
 		</div>
 {% endblock %}

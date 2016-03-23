@@ -3,7 +3,7 @@ h1 a {
 	font-weight: bolder;
 }
 
-h2 {
+h2.title {
 	position: relative;
 	bottom: 38px;
 }
@@ -20,7 +20,6 @@ p.post_date {
 	font-size: smaller;
 	position: relative;
 	bottom: 15px;
-	padding-right: 1%;
 	text-align: right;
 }
 
@@ -29,4 +28,10 @@ p.post_body {
 	bottom: 25px;
 	left: 20px;
 	padding-right: 40px;
+}
+
+h6 {
+	font-weight: bold;
+	text-align: center;
+	color: grey;
 }
